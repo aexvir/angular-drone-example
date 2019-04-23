@@ -41,7 +41,7 @@ describe('ProductsListComponent', () => {
   });
 
   it('should emit an event with the clicked product', () => {
-    const productList: Product[] = component.productsList
+    const productList: Product[] = component.productsList;
     const product = productList.pop();
 
     spyOn(component.productSelected, 'emit');
@@ -50,5 +50,33 @@ describe('ProductsListComponent', () => {
     fixture.detectChanges();
 
     expect(component.productSelected.emit).toHaveBeenCalledWith(product);
+  });
+
+  it('should be able to tell if the tested product is the selected one', () => {
+    const productList: Product[] = component.productsList;
+    const product = productList.pop();
+
+    component.clicked(product);
+    fixture.detectChanges();
+
+    expect(component.isSelected(product)).toBeTruthy();
+  });
+
+  it('should be able to tell if the tested product is not the selected one', () => {
+    const productList: Product[] = component.productsList;
+    const product = productList.pop();
+    const otherProduct = productList.pop();
+
+    component.clicked(product);
+    fixture.detectChanges();
+
+    expect(component.isSelected(otherProduct)).toBeFalsy();
+  });
+
+  it('should return false if no product is selected', () => {
+    const productList: Product[] = component.productsList;
+    const product = productList.pop();
+
+    expect(component.isSelected(product)).toBeFalsy();
   });
 });
