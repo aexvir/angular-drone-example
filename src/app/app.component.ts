@@ -28,4 +28,8 @@ export class AppComponent {
       ),
     ];
   }
+
+  productWasSelected(product: Product) {
+    console.log(`Product clicked ${product.name}`);
+  }
 }

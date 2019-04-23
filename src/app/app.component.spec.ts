@@ -1,6 +1,7 @@
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {Product} from './product.model';
+import {ProductsListComponent} from './products-list/products-list.component';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ProductsListComponent
       ],
     }).compileComponents();
   }));
@@ -36,20 +38,12 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
+    fixture.detectChanges();
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'inventory-app'`, () => {
-    expect(app.title).toEqual('inventory-app');
-  });
-
-  it('should render title in a h1 tag', () => {
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to inventory-app!');
-  });
-
   it('should have products', () => {
+    fixture.detectChanges();
     expect(app.products).toBeDefined('no products found');
   });
 });
