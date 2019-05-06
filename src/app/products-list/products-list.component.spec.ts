@@ -2,6 +2,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ProductsListComponent} from './products-list.component';
 import {Product} from '../product.model';
+import {ProductRowComponent} from '../product-row/product-row.component';
+import {ProductImageComponent} from '../product-image/product-image.component';
 
 describe('ProductsListComponent', () => {
   let component: ProductsListComponent;
@@ -9,7 +11,7 @@ describe('ProductsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductsListComponent]
+      declarations: [ProductsListComponent, ProductRowComponent, ProductImageComponent]
     })
       .compileComponents();
   }));
@@ -21,7 +23,7 @@ describe('ProductsListComponent', () => {
       new Product(
         '435-ret',
         'Graphics Card Deluxe',
-        'http://images.test/graphics/card/deluxe.jpg',
+        '/assets/test.png',
         ['Graphics', 'Accessories', 'Deluxe'],
         567.78
       ),

@@ -15,14 +15,14 @@ export class AppComponent {
       new Product(
         '435-ret',
         'Graphics Card Deluxe',
-        'http://images.test/graphics/card/deluxe.jpg',
+        '/assets/test.png',
         ['Graphics', 'Accessories', 'Deluxe'],
         567.78
       ),
       new Product(
         '398-beast',
         'The HD Beast',
-        'http://images.test/graphics/card/beast.jpg',
+        '/assets/test.png',
         ['Graphics', 'Accessories', 'Performance'],
         567.78
       ),

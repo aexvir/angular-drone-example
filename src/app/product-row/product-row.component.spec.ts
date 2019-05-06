@@ -10,7 +10,7 @@ describe('ProductRowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductRowComponent]
+      declarations: [ ProductRowComponent, ProductImageComponent ]
     })
     .compileComponents();
   }));
@@ -21,7 +21,7 @@ describe('ProductRowComponent', () => {
     component.product = new Product(
       '435-ret',
       'Graphics Card Deluxe',
-      'http://images.test/graphics/card/deluxe.jpg',
+      '/assets/test.png',
       ['Graphics', 'Accessories', 'Deluxe'],
       567.78
     );
