@@ -1,13 +1,21 @@
 const config = require('./protractor.conf').config;
+const puppeteer = require('puppeteer');
 
 config.capabilities = {
+  allScriptsTimeout: 11000,
   browserName: 'chrome',
   'chromeOptions': {
-    args: ['--headless', '--no-sandbox']
+    args: [
+      '--no-sandbox',
+      '--headless',
+      '--disable-gpu'
+    ]
   },
-  'acceptInsecureCerts': true
+  binary: puppeteer.executablePath()
 };
 
-config.seleniumAddress = 'http://chrome:4444/wd/hub';
+config.baseUrl = 'http://testserver:4200';
 config.directConnect = true;
+config.useAllAngular2AppRoots = true;
 exports.config = config;
+
