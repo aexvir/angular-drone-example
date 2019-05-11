@@ -9,5 +9,5 @@ config.capabilities = {
 };
 
 config.seleniumAddress = 'http://chrome:4444/wd/hub';
-config.directConnect = false;
+config.directConnect = true;
 exports.config = config;
