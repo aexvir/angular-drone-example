@@ -26,14 +26,14 @@ pipeline:
     - npm run test:ci
 
   test:e2e:
-    image: weboaks/node-karma-protractor-chrome:alpine-root
+    image: caltha/protractor
     commands:
     - npm run e2e:ci
 
-  build:
-    image: node:10-alpine
-    commands:
-    - npm run build:prod
+  #build:
+  #  image: node:10-alpine
+  #  commands:
+  #  - npm run build:prod
 
 notify:mail:
   image: drillster/drone-email
