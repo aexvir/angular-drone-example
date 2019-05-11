@@ -52,5 +52,3 @@ services:
   chrome:
     # @TODO Have a look at https://gitlab.com/DMore/chrome-mink-driver
     image: selenium/standalone-chrome
-    volumes:
-    - /dev/shm:/dev/shm
