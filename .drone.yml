@@ -19,6 +19,11 @@ pipeline:
   #  image: node:10-alpine
   #  commands:
   #  - npm run lint:html
+  testserver:
+    image: node:10-alpine
+    commands:
+      - npm run start
+    detach: true
 
   test:spec:
     image: weboaks/node-karma-protractor-chrome:alpine-root
@@ -28,7 +33,7 @@ pipeline:
   test:e2e:
     image: weboaks/node-karma-protractor-chrome:alpine-root
     commands:
-    - npm run e2e:ci
+    - npm run ci:e2e #e2e:ci
 
   build:
     image: node:10-alpine
@@ -47,8 +52,3 @@ notify:mail:
     target: plugin_username
   - source: ci_email_password
     target: plugin_password
-
-services:
-  chrome:
-    # @TODO Have a look at https://gitlab.com/DMore/chrome-mink-driver
-    image: selenium/standalone-chrome
