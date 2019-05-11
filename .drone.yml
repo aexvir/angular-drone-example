@@ -28,7 +28,7 @@ pipeline:
   test:e2e:
     image: weboaks/node-karma-protractor-chrome:alpine-root
     commands:
-    - npm run e2e
+    - npm run e2e:ci
 
   build:
     image: node:10-alpine
