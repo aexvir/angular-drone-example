@@ -8,17 +8,17 @@ pipeline:
     commands:
     - npm install
 
-  test:lint:ng:
-    group: lint
-    image: node:10-alpine
-    commands:
-    - npm run lint:ng
-
-  test:lint:html:
-    group: lint
-    image: node:10-alpine
-    commands:
-    - npm run lint:html
+  #test:lint:ng:
+  #  group: lint
+  #  image: node:10-alpine
+  #  commands:
+  #  - npm run lint:ng
+#
+  #test:lint:html:
+  #  group: lint
+  #  image: node:10-alpine
+  #  commands:
+  #  - npm run lint:html
 
   test:spec:
     image: weboaks/node-karma-protractor-chrome:alpine-root
