@@ -4,21 +4,9 @@ workspace:
 
 pipeline:
   setup:npm:
-    image: node:10-alpine
+    image: node:12-alpine
     commands:
     - npm install
-
-  #test:lint:ng:
-  #  group: lint
-  #  image: node:10-alpine
-  #  commands:
-  #  - npm run lint:ng
-#
-  #test:lint:html:
-  #  group: lint
-  #  image: node:10-alpine
-  #  commands:
-  #  - npm run lint:html
 
   test:spec:
     image: weboaks/node-karma-protractor-chrome:alpine-root
@@ -29,21 +17,3 @@ pipeline:
     image: caltha/protractor
     commands:
     - npm run e2e:ci
-
-  #build:
-  #  image: node:10-alpine
-  #  commands:
-  #  - npm run build:prod
-
-notify:mail:
-  image: drillster/drone-email
-  from: ci@mattagohni.de
-  host: sslout.df.eu
-  when:
-    event: push
-    status: [changed, failure]
-  secrets:
-  - source: ci_email_user
-    target: plugin_username
-  - source: ci_email_password
-    target: plugin_password
